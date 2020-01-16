@@ -38,6 +38,11 @@ var mgoRegistry = newRegistryBuilder().Build()
 // MgoRegistry is mgocompat reg
 var MgoRegistry = mgoRegistry
 
+// NewRegistryBuilder returns a registry builder configured with mgocompat settings.
+func NewRegistryBuilder() *bsoncodec.RegistryBuilder {
+	return newRegistryBuilder()
+}
+
 // newRegistryBuilder creates a new RegistryBuilder configured with the default encoders and
 // deocders from the bsoncodec.DefaultValueEncoders and bsoncodec.DefaultValueDecoders types and the
 // PrimitiveCodecs type in this package.
