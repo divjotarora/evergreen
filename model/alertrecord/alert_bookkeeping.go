@@ -56,8 +56,8 @@ type AlertRecord struct {
 	AlertTime           time.Time        `bson:"alert_time,omitempty"`
 }
 
-func (ar *AlertRecord) MarshalBSON() ([]byte, error)  { return mgobson.Marshal(ar) }
-func (ar *AlertRecord) UnmarshalBSON(in []byte) error { return mgobson.Unmarshal(in, ar) }
+// func (ar *AlertRecord) MarshalBSON() ([]byte, error)  { return mgobson.Marshal(ar) }
+// func (ar *AlertRecord) UnmarshalBSON(in []byte) error { return mgobson.Unmarshal(in, ar) }
 
 func (ar *AlertRecord) Insert() error {
 	return db.Insert(Collection, ar)

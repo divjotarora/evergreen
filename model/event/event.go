@@ -56,8 +56,8 @@ var (
 
 const resourceTypeKey = "r_type"
 
-func (e *EventLogEntry) UnmarshalBSON(in []byte) error { return mgobson.Unmarshal(in, e) }
-func (e *EventLogEntry) MarshalBSON() ([]byte, error)  { return mgobson.Marshal(e) }
+// func (e *EventLogEntry) UnmarshalBSON(in []byte) error { return mgobson.Unmarshal(in, e) }
+// func (e *EventLogEntry) MarshalBSON() ([]byte, error)  { return mgobson.Marshal(e) }
 
 func (e *EventLogEntry) SetBSON(raw mgobson.Raw) error {
 	temp := UnmarshalEventLogEntry{}

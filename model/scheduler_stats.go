@@ -13,7 +13,6 @@ import (
 	"github.com/mongodb/grip/message"
 	"github.com/pkg/errors"
 	"go.mongodb.org/mongo-driver/bson"
-	mgobson "gopkg.in/mgo.v2/bson"
 )
 
 // ResourceInfo contains the meta data about a given resource
@@ -394,13 +393,13 @@ func AverageTaskLatency(since time.Duration) (*AverageTimes, error) {
 	return &stats, nil
 }
 
-func (a *AverageTimes) MarshalBSON() ([]byte, error)  { return mgobson.Marshal(a) }
-func (a *AverageTimes) UnmarshalBSON(in []byte) error { return mgobson.Unmarshal(in, a) }
+// func (a *AverageTimes) MarshalBSON() ([]byte, error)  { return mgobson.Marshal(a) }
+// func (a *AverageTimes) UnmarshalBSON(in []byte) error { return mgobson.Unmarshal(in, a) }
 
-func (a *AverageTimeByDistroAndRequester) MarshalBSON() ([]byte, error) { return mgobson.Marshal(a) }
-func (a *AverageTimeByDistroAndRequester) UnmarshalBSON(in []byte) error {
-	return mgobson.Unmarshal(in, a)
-}
+// func (a *AverageTimeByDistroAndRequester) MarshalBSON() ([]byte, error) { return mgobson.Marshal(a) }
+// func (a *AverageTimeByDistroAndRequester) UnmarshalBSON(in []byte) error {
+// 	return mgobson.Unmarshal(in, a)
+// }
 
 func (a *AverageTimes) Raw() interface{} { _ = a.Collect(); return a } // nolint: golint
 func (a *AverageTimes) Loggable() bool   { return len(a.Times) > 0 }   // nolint: golint

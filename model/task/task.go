@@ -166,8 +166,8 @@ type Task struct {
 	CommitQueueMerge bool `bson:"commit_queue_merge,omitempty" json:"commit_queue_merge,omitempty"`
 }
 
-func (t *Task) MarshalBSON() ([]byte, error)  { return mgobson.Marshal(t) }
-func (t *Task) UnmarshalBSON(in []byte) error { return mgobson.Unmarshal(in, t) }
+// func (t *Task) MarshalBSON() ([]byte, error)  { return mgobson.Marshal(t) }
+// func (t *Task) UnmarshalBSON(in []byte) error { return mgobson.Unmarshal(in, t) }
 
 func (t *Task) GetTaskGroupString() string {
 	return fmt.Sprintf("%s_%s_%s_%s", t.TaskGroup, t.BuildVariant, t.Project, t.Version)

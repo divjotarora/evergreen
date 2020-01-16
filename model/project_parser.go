@@ -5,7 +5,6 @@ import (
 	"reflect"
 	"strings"
 
-	mgobson "gopkg.in/mgo.v2/bson"
 	"gopkg.in/yaml.v2"
 
 	"github.com/evergreen-ci/evergreen"
@@ -118,9 +117,9 @@ func (pp *ParserProject) Insert() error {
 	return db.Insert(ParserProjectCollection, pp)
 }
 
-func (pp *ParserProject) MarshalBSON() ([]byte, error) {
-	return mgobson.Marshal(pp)
-}
+// func (pp *ParserProject) MarshalBSON() ([]byte, error) {
+// 	return mgobson.Marshal(pp)
+// }
 
 func (pp *ParserProject) MarshalYAML() (interface{}, error) {
 	for i, pt := range pp.Tasks {

@@ -74,8 +74,8 @@ var (
 	TaskCreateTimeKey       = bsonutil.MustHaveTag(TestResult{}, "TaskCreateTime")
 )
 
-func (t *TestResult) MarshalBSON() ([]byte, error)  { return mgobson.Marshal(t) }
-func (t *TestResult) UnmarshalBSON(in []byte) error { return mgobson.Unmarshal(in, t) }
+// func (t *TestResult) MarshalBSON() ([]byte, error)  { return mgobson.Marshal(t) }
+// func (t *TestResult) UnmarshalBSON(in []byte) error { return mgobson.Unmarshal(in, t) }
 
 // FindByTaskIDAndExecution returns test results from the testresults collection for a given task.
 func FindByTaskIDAndExecution(taskID string, execution int) ([]TestResult, error) {

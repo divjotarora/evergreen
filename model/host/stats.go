@@ -6,7 +6,6 @@ import (
 	"github.com/evergreen-ci/evergreen/model/distro"
 	"github.com/mongodb/anser/bsonutil"
 	"go.mongodb.org/mongo-driver/bson"
-	mgobson "gopkg.in/mgo.v2/bson"
 )
 
 type DistroStats []StatsByDistro
@@ -25,8 +24,8 @@ type StatsByDistro struct {
 	MaxHosts int `bson:"max_hosts" json:"max_hosts"`
 }
 
-func (d *StatsByDistro) MarshalBSON() ([]byte, error)  { return mgobson.Marshal(d) }
-func (d *StatsByDistro) UnmarshalBSON(in []byte) error { return mgobson.Unmarshal(in, d) }
+// func (d *StatsByDistro) MarshalBSON() ([]byte, error)  { return mgobson.Marshal(d) }
+// func (d *StatsByDistro) UnmarshalBSON(in []byte) error { return mgobson.Unmarshal(in, d) }
 
 type ProviderStats []StatsByProvider
 type StatsByProvider struct {

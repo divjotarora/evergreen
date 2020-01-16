@@ -7,7 +7,6 @@ import (
 	"github.com/mongodb/grip/message"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo/options"
-	mgobson "gopkg.in/mgo.v2/bson"
 )
 
 type hostStatusDistro struct {
@@ -15,8 +14,8 @@ type hostStatusDistro struct {
 	Status []string `bson:"status"`
 }
 
-func (s *hostStatusDistro) MarshalBSON() ([]byte, error)  { return mgobson.Marshal(s) }
-func (s *hostStatusDistro) UnmarshalBSON(in []byte) error { return mgobson.Unmarshal(in, s) }
+// func (s *hostStatusDistro) MarshalBSON() ([]byte, error)  { return mgobson.Marshal(s) }
+// func (s *hostStatusDistro) UnmarshalBSON(in []byte) error { return mgobson.Unmarshal(in, s) }
 
 func getRecentStatusesForHost(hostId string, n int) (int, []string) {
 	or := ResourceTypeKeyIs(ResourceTypeHost)

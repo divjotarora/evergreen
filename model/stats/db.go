@@ -143,8 +143,8 @@ type dbTestStats struct {
 	LastID          mgobson.ObjectId `bson:"last_id"`
 }
 
-func (d *dbTestStats) MarshalBSON() ([]byte, error)  { return mgobson.Marshal(d) }
-func (d *dbTestStats) UnmarshalBSON(in []byte) error { return mgobson.Unmarshal(in, d) }
+// func (d *dbTestStats) MarshalBSON() ([]byte, error)  { return mgobson.Marshal(d) }
+// func (d *dbTestStats) UnmarshalBSON(in []byte) error { return mgobson.Unmarshal(in, d) }
 
 var (
 	// BSON fields for the test stats id struct
@@ -388,8 +388,8 @@ type DbTaskStats struct {
 	LastUpdate         time.Time     `bson:"last_update"`
 }
 
-func (d *DbTaskStats) MarshalBSON() ([]byte, error)  { return mgobson.Marshal(d) }
-func (d *DbTaskStats) UnmarshalBSON(in []byte) error { return mgobson.Unmarshal(in, d) }
+// func (d *DbTaskStats) MarshalBSON() ([]byte, error)  { return mgobson.Marshal(d) }
+// func (d *DbTaskStats) UnmarshalBSON(in []byte) error { return mgobson.Unmarshal(in, d) }
 
 var (
 	// BSON fields for the task stats id struct

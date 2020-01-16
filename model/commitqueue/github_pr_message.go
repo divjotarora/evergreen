@@ -8,7 +8,6 @@ import (
 	"github.com/mongodb/grip/level"
 	"github.com/mongodb/grip/message"
 	"github.com/pkg/errors"
-	mgobson "gopkg.in/mgo.v2/bson"
 )
 
 // valid Github merge methods
@@ -28,8 +27,8 @@ type GithubMergePR struct {
 	PRs         []event.PRInfo `bson:"prs"`
 }
 
-func (m *GithubMergePR) MarshalBSON() ([]byte, error)  { return mgobson.Marshal(m) }
-func (m *GithubMergePR) UnmarshalBSON(in []byte) error { return mgobson.Unmarshal(in, m) }
+// func (m *GithubMergePR) MarshalBSON() ([]byte, error)  { return mgobson.Marshal(m) }
+// func (m *GithubMergePR) UnmarshalBSON(in []byte) error { return mgobson.Unmarshal(in, m) }
 
 // Valid returns nil if the message is well formed
 func (p *GithubMergePR) Valid() error {

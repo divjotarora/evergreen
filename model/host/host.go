@@ -168,8 +168,8 @@ const (
 	ReprovisionJasperRestart ReprovisionType = "jasper-restart"
 )
 
-func (h *Host) MarshalBSON() ([]byte, error)  { return mgobson.Marshal(h) }
-func (h *Host) UnmarshalBSON(in []byte) error { return mgobson.Unmarshal(in, h) }
+// func (h *Host) MarshalBSON() ([]byte, error)  { return mgobson.Marshal(h) }
+// func (h *Host) UnmarshalBSON(in []byte) error { return mgobson.Unmarshal(in, h) }
 
 type IdleHostsByDistroID struct {
 	DistroID          string `bson:"distro_id"`
@@ -177,8 +177,8 @@ type IdleHostsByDistroID struct {
 	RunningHostsCount int    `bson:"running_hosts_count"`
 }
 
-func (h *IdleHostsByDistroID) MarshalBSON() ([]byte, error)  { return mgobson.Marshal(h) }
-func (h *IdleHostsByDistroID) UnmarshalBSON(in []byte) error { return mgobson.Unmarshal(in, h) }
+// func (h *IdleHostsByDistroID) MarshalBSON() ([]byte, error)  { return mgobson.Marshal(h) }
+// func (h *IdleHostsByDistroID) UnmarshalBSON(in []byte) error { return mgobson.Unmarshal(in, h) }
 
 type HostGroup []Host
 

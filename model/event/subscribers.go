@@ -8,6 +8,7 @@ import (
 	"github.com/mongodb/grip"
 	"github.com/pkg/errors"
 	mgobson "gopkg.in/mgo.v2/bson"
+	"go.mongodb.org/mongo-driver/bson"
 )
 
 const (
@@ -47,11 +48,11 @@ type Subscriber struct {
 
 type unmarshalSubscriber struct {
 	Type   string      `bson:"type"`
-	Target mgobson.Raw `bson:"target"`
+	Target bson.RawValue `bson:"target"`
 }
 
-func (s *Subscriber) MarshalBSON() ([]byte, error)  { return mgobson.Marshal(s) }
-func (s *Subscriber) UnmarshalBSON(in []byte) error { return mgobson.Unmarshal(in, s) }
+// func (s *Subscriber) MarshalBSON() ([]byte, error)  { return mgobson.Marshal(s) }
+// func (s *Subscriber) UnmarshalBSON(in []byte) error { return mgobson.Unmarshal(in, s) }
 
 func (s *Subscriber) SetBSON(raw mgobson.Raw) error {
 	temp := unmarshalSubscriber{}

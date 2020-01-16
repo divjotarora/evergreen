@@ -28,8 +28,8 @@ type TaskLog struct {
 	Messages     []apimodels.LogMessage `bson:"m" json:"m"`
 }
 
-func (t *TaskLog) MarshalBSON() ([]byte, error)  { return mgobson.Marshal(t) }
-func (t *TaskLog) UnmarshalBSON(in []byte) error { return mgobson.Unmarshal(in, t) }
+// func (t *TaskLog) MarshalBSON() ([]byte, error)  { return mgobson.Marshal(t) }
+// func (t *TaskLog) UnmarshalBSON(in []byte) error { return mgobson.Unmarshal(in, t) }
 
 var (
 	// bson fields for the task log struct

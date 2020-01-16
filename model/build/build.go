@@ -12,7 +12,6 @@ import (
 	"github.com/pkg/errors"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo/options"
-	mgobson "gopkg.in/mgo.v2/bson"
 )
 
 // IdTimeLayout is used time time.Time.Format() to produce timestamps for our ids.
@@ -67,8 +66,8 @@ type Build struct {
 	TriggerEvent string `bson:"trigger_event,omitempty" json:"trigger_event,omitempty"`
 }
 
-func (b *Build) MarshalBSON() ([]byte, error)  { return mgobson.Marshal(b) }
-func (b *Build) UnmarshalBSON(in []byte) error { return mgobson.Unmarshal(in, b) }
+// func (b *Build) MarshalBSON() ([]byte, error)  { return mgobson.Marshal(b) }
+// func (b *Build) UnmarshalBSON(in []byte) error { return mgobson.Unmarshal(in, b) }
 
 // Returns whether or not the build has finished, based on its status.
 // In spite of the name, a build with status BuildFailed may still be in

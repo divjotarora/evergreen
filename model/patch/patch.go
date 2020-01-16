@@ -59,8 +59,8 @@ type Patch struct {
 	GithubPatchData GithubPatch      `bson:"github_patch_data,omitempty"`
 }
 
-func (p *Patch) MarshalBSON() ([]byte, error)  { return mgobson.Marshal(p) }
-func (p *Patch) UnmarshalBSON(in []byte) error { return mgobson.Unmarshal(in, p) }
+// func (p *Patch) MarshalBSON() ([]byte, error)  { return mgobson.Marshal(p) }
+// func (p *Patch) UnmarshalBSON(in []byte) error { return mgobson.Unmarshal(in, p) }
 
 // GithubPatch stores patch data for patches create from GitHub pull requests
 type GithubPatch struct {

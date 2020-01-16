@@ -12,7 +12,6 @@ import (
 	"github.com/mongodb/grip/message"
 	"github.com/mongodb/grip/send"
 	"github.com/pkg/errors"
-	mgobson "gopkg.in/mgo.v2/bson"
 )
 
 const (
@@ -26,8 +25,8 @@ type Module struct {
 	Issue  string `bson:"issue" json:"issue"`
 }
 
-func (m *Module) MarshalBSON() ([]byte, error)  { return mgobson.Marshal(m) }
-func (m *Module) UnmarshalBSON(in []byte) error { return mgobson.Unmarshal(in, m) }
+// func (m *Module) MarshalBSON() ([]byte, error)  { return mgobson.Marshal(m) }
+// func (m *Module) UnmarshalBSON(in []byte) error { return mgobson.Unmarshal(in, m) }
 
 type CommitQueueItem struct {
 	Issue       string    `bson:"issue"`
@@ -36,8 +35,8 @@ type CommitQueueItem struct {
 	Modules     []Module  `bson:"modules"`
 }
 
-func (i *CommitQueueItem) MarshalBSON() ([]byte, error)  { return mgobson.Marshal(i) }
-func (i *CommitQueueItem) UnmarshalBSON(in []byte) error { return mgobson.Unmarshal(in, i) }
+// func (i *CommitQueueItem) MarshalBSON() ([]byte, error)  { return mgobson.Marshal(i) }
+// func (i *CommitQueueItem) UnmarshalBSON(in []byte) error { return mgobson.Unmarshal(in, i) }
 
 type CommitQueue struct {
 	ProjectID             string            `bson:"_id"`
@@ -46,8 +45,8 @@ type CommitQueue struct {
 	Queue                 []CommitQueueItem `bson:"queue,omitempty"`
 }
 
-func (q *CommitQueue) MarshalBSON() ([]byte, error)  { return mgobson.Marshal(q) }
-func (q *CommitQueue) UnmarshalBSON(in []byte) error { return mgobson.Unmarshal(in, q) }
+// func (q *CommitQueue) MarshalBSON() ([]byte, error)  { return mgobson.Marshal(q) }
+// func (q *CommitQueue) UnmarshalBSON(in []byte) error { return mgobson.Unmarshal(in, q) }
 
 func InsertQueue(q *CommitQueue) error {
 	return insert(q)

@@ -52,13 +52,13 @@ type ProjectChangeEventEntry struct {
 	event.EventLogEntry
 }
 
-func (e *ProjectChangeEventEntry) UnmarshalBSON(in []byte) error {
-	return mgobson.Unmarshal(in, e)
-}
+// func (e *ProjectChangeEventEntry) UnmarshalBSON(in []byte) error {
+// 	return mgobson.Unmarshal(in, e)
+// }
 
-func (e *ProjectChangeEventEntry) MarshalBSON() ([]byte, error) {
-	return mgobson.Marshal(e)
-}
+// func (e *ProjectChangeEventEntry) MarshalBSON() ([]byte, error) {
+// 	return mgobson.Marshal(e)
+// }
 
 func (e *ProjectChangeEventEntry) SetBSON(raw mgobson.Raw) error {
 	temp := event.UnmarshalEventLogEntry{}
