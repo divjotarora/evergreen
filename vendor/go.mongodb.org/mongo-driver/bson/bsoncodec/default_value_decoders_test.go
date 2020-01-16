@@ -338,7 +338,7 @@ func TestDefaultValueDecoders(t *testing.T) {
 		},
 		{
 			"UintDecodeValue",
-			ValueDecoderFunc(dvd.UintDecodeValue),
+			defaultUIntCodec,
 			[]subtest{
 				{
 					"wrong type",
@@ -2808,7 +2808,7 @@ func TestDefaultValueDecoders(t *testing.T) {
 						llc := &llCodec{t: t, err: want}
 						dc := DecodeContext{
 							Registry: NewRegistryBuilder().
-								RegisterDecoder(reflect.TypeOf(tc.val), llc).
+								RegisterTypeDecoder(reflect.TypeOf(tc.val), llc).
 								RegisterTypeMapEntry(tc.bsontype, reflect.TypeOf(tc.val)).
 								Build(),
 						}
@@ -2823,7 +2823,7 @@ func TestDefaultValueDecoders(t *testing.T) {
 						llc := &llCodec{t: t, decodeval: tc.val}
 						dc := DecodeContext{
 							Registry: NewRegistryBuilder().
-								RegisterDecoder(reflect.TypeOf(tc.val), llc).
+								RegisterTypeDecoder(reflect.TypeOf(tc.val), llc).
 								RegisterTypeMapEntry(tc.bsontype, reflect.TypeOf(tc.val)).
 								Build(),
 						}
