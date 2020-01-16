@@ -28,6 +28,7 @@ import (
 	"github.com/mongodb/grip/send"
 	"github.com/mongodb/jasper"
 	"github.com/pkg/errors"
+	"go.mongodb.org/mongo-driver/bson/mgocompat"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
@@ -259,7 +260,9 @@ func (e *envState) initSettings(path string) error {
 
 func (e *envState) initDB(ctx context.Context, settings DBSettings) error {
 	opts := options.Client().ApplyURI(settings.Url).SetWriteConcern(settings.WriteConcernSettings.Resolve()).
-		SetConnectTimeout(5 * time.Second).SetMonitor(apm.NewLoggingMonitor(ctx, time.Minute, apm.NewBasicMonitor(nil)).DriverAPM())
+		SetConnectTimeout(5 * time.Second).
+		SetMonitor(apm.NewLoggingMonitor(ctx, time.Minute, apm.NewBasicMonitor(nil)).DriverAPM()).
+		SetRegistry(mgocompat.MgoRegistry)
 
 	var err error
 	e.client, err = mongo.NewClient(opts)
